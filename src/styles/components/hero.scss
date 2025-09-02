@@ -2,16 +2,16 @@
    hero / component
    ========================================================================== */
 
-.hero{
+.hero {
     position: relative;
 
-    .wrapper{
+    .wrapper {
         min-height: 85vh;
         display: grid;
         grid-template-columns: 1fr 1.3fr;
     }
 
-    .hero__media{
+    .hero__media {
         position: absolute;
         top: 0;
         left: 0;
@@ -19,7 +19,7 @@
         width: 100%;
         height: 100%;
 
-        img{
+        img {
             object-fit: cover;
             display: block;
             height: 100%;
@@ -27,22 +27,22 @@
         }
     }
 
-    .hero__content{
+    .hero__content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: var(--grid-gap);
 
         color: var(--color-white);
-        
-        h1{
+
+        h1 {
             font-weight: 400;
             margin: 0;
         }
     }
 }
 
-.button{
+.button {
     font-size: typo(14px, 16px);
     text-transform: uppercase;
     font-weight: 900;
@@ -57,4 +57,10 @@
 
     border-radius: 100px;
     border: 4px var(--color-primary) solid;
+
+    &:hover {
+        text-decoration: none;
+        color: var(--color-white);
+        border-color: var(--color-white);
+    }
 }
