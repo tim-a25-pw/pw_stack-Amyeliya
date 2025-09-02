@@ -1,6 +1,34 @@
 /* ==========================================================================
    header / component
    ========================================================================== */
+.nav_brand{
+    font-size: typo(16px, 40px);
+    font-family: var(--font-primary);
+    font-weight: 900;
+    
+    color: var(--color-secondary);
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    transition: ease-out 0.3s all;
+
+    .icon{
+        fill: var(--color-primary);
+        font-size: 50px;
+    }
+
+    &:hover{
+        text-decoration: none;
+
+        transform: scale(1.1);
+
+        .icon{
+            fill: var(--color-secondary);
+        }
+    }
+}
 
 .header{
     --header-height: 100px;
@@ -19,27 +47,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-
-    .nav_brand{
-        font-size: typo(20px, 40px);
-        font-family: var(--font-primary);
-        font-weight: 900;
-        
-        color: var(--color-secondary);
-
-        display: flex;
-        align-items: center;
-        gap: 30px;
-
-        .icon{
-            fill: var(--color-primary);
-            font-size: 50px;
-        }
-
-        &:hover{
-            text-decoration: none;
-        }
     }
 
     .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {

@@ -1,10 +1,14 @@
+/* ==========================================================================
+   hero / component
+   ========================================================================== */
+
 .hero{
     position: relative;
 
     .wrapper{
         min-height: 85vh;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.3fr;
     }
 
     .hero__media{
