@@ -1,0 +1,218 @@
+/* ==========================================================================
+   header / component
+   ========================================================================== */
+
+.header{
+    --header-height: 100px;
+
+    background-color: var(--color-white);
+    
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+    transition: transform 0.4s $ease-out-expo;
+
+    .wrapper{
+        height: var(--header-height);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav_brand{
+        font-size: typo(20px, 40px);
+        font-family: var(--font-primary);
+        font-weight: 900;
+        
+        color: var(--color-secondary);
+
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .icon{
+            fill: var(--color-primary);
+        }
+
+        &:hover{
+            text-decoration: none;
+        }
+    }
+
+    .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {
+        transform: translateY(-100%) translateY(4px);
+    }
+}
+
+.nav-primary {
+    background-color: var(--color-white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    padding-top: var(--header-height);
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.8s $ease-out-circ;
+
+    .nav-is-active & {
+        transform: translateX(0);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        transform: translateX(80%);
+        opacity: 0;
+        transition: all 1.2s $ease-out-expo;
+
+        .nav-is-active & {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-md) {
+        display: block;
+        background-color: unset;
+        position: relative;
+        height: auto;
+        width: auto;
+        overflow-y: visible;
+        padding-top: 0;
+        transform: translateY(0);
+        z-index: 2;
+
+        ul {
+            opacity: 1;
+            flex-direction: row;
+            transform: translateY(0);
+        }
+    }
+}
+
+.nav-primary__item {
+    font-size: typo(14px);
+    font-weight: 700;
+    color: var(--color-thirdly);
+    text-transform: uppercase;
+    position: relative;
+
+    &:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    @media screen and (min-width: $breakpoint-md) {
+        position: relative;
+
+        &::before {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            content: '';
+            background-color: white;
+            transform: scaleX(0);
+            transition: 0.3s all;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            &::before {
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+.nav-is-active body {
+    overflow: hidden;
+
+    @media screen and (min-width: $breakpoint-md) {
+        overflow: auto;
+    }
+}
+
+
+// Mettre ton .header__toggle ici
+.header__toggle {
+    --bar-height: 5px;
+    --bar-width: 35px;
+    --bar-spacer: 6px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    width: var(--bar-width);
+    height: var(--bar-width);
+    z-index: 10;
+
+    span {
+        background-color: var(--color-thirdly);
+        border-radius: 3px;
+        height: var(--bar-height);
+        width: 100%;
+        position: absolute;
+        top: calc(50% - var(--bar-height) / 2);
+        left: calc(50% - var(--bar-width) / 2);
+        transition: 0.3s all ease-out;
+
+        &:nth-child(1) {
+            top: calc(
+                50% - var(--bar-height) / 2 - var(--bar-height) -
+                    var(--bar-spacer)
+            );
+        }
+
+        &:nth-child(3) {
+            top: calc(
+                50% - var(--bar-height) / 2 + var(--bar-height) +
+                    var(--bar-spacer)
+            );
+        }
+    }
+
+    .nav-is-active & {
+        span {
+            top: calc(50% - var(--bar-height) / 2);
+
+            &:nth-child(1) {
+                transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+                transform: scaleX(0);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-md) {
+        display: none;
+    }
+}
