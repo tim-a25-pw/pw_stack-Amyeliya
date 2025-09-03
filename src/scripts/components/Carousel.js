@@ -7,7 +7,6 @@ export default class Carousel {
       slidesPerView: 1,
       spaceBetween: 0,
       direction: 'vertical',
-      autoHeight: true,
       pagination: {
         el: this.element.querySelector('.swiper-pagination'),
         clickable: true,

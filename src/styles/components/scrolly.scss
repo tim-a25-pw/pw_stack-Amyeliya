@@ -1,0 +1,77 @@
+/* ==========================================================================
+   scrolly / component
+   ========================================================================== */
+
+.has-js {
+    [data-scrolly='fromBottom'] {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: all 0.7s ease-out;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    [data-scrolly='fromLeft'] {
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: all 0.7s ease-out;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    [data-scrolly='fromTop'] {
+        opacity: 0;
+        transform: translateY(-100px);
+        transition: all 0.7s ease-out;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    [data-scrolly='fromRight'] {
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.7s ease-out;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    *:has(> [data-scrolly='flipFromBottom']) {
+        perspective: 1000px;
+    }
+
+    [data-scrolly='flipFromBottom'] {
+        opacity: 0;
+        transform: rotateX(90deg) translate3d(0, 100px, 0);
+        transform-style: preserve-3d;
+        transition: all 1s $ease-out-expo;
+
+        &.is-active {
+            opacity: 1;
+            transform: rotateX(0);
+            transform-style: preserve-3d;
+        }
+    }
+
+    [data-scrolly='rotationFromLeftBottom'] {
+        opacity: 0;
+        transform: translateX(-100px) translateY(60px) rotate3d(0, 1, 0, 180deg);
+        transition: all 0.8s $ease-in-out-quad;
+
+        &.is-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}

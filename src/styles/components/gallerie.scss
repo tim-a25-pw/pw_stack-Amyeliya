@@ -9,18 +9,36 @@
     img {
         display: block;
         width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 
     .swiper {
+        height: 80vh;
+
+        @media screen and (max-width: $breakpoint-md) {
+            height: 60vh;
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            height: 40vh;
+        }
+        @media screen and (max-width: 460px) {
+            height: 30vh;
+        }
+        @media screen and (max-width: $breakpoint-xs) {
+            height: 25vh;
+        }
+
         .swiper-pagination-bullet {
             --swiper-pagination-color: var(--color-primary);
             --swiper-pagination-bullet-size: 30px;
             --swiper-pagination-bullet-horizontal-gap: 10px;
+            --swiper-pagination-bullet-inactive-color: var(--color-black);
+            opacity: 1;
         }
     }
 
     .swiper-slide {
-        height: auto !important;
+        height: 100% !important;
     }
 }

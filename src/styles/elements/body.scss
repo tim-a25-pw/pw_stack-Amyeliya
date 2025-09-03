@@ -13,4 +13,14 @@ body {
     font-family: var(--font-secondary);
     font-size: var(--font-size-content);
     line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+section {
+    overflow-x: hidden;
+}
+
+header {
+    overflow-x: hidden;
 }

@@ -9,6 +9,14 @@
         min-height: 85vh;
         display: grid;
         grid-template-columns: 1fr 1.3fr;
+
+        @media screen and (max-width: $breakpoint-md) {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        @media screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr;
+        }
     }
 
     .hero__media {
@@ -24,6 +32,13 @@
             display: block;
             height: 100%;
             width: 100%;
+
+            @media screen and (max-width: $breakpoint-md) {
+                object-position: right;
+            }
+            @media screen and (max-width: $breakpoint-sm) {
+                object-position: center;
+            }
         }
     }
 
